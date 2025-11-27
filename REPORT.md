@@ -4,7 +4,7 @@
 
 **Configuration Repository**: https://github.com/Marcos1236/lab6-microservices.git
 
-En cuanto a la configuración del repositorio, unicamente he modificado el 'accounts-service.yml'. Concretamente modifiqué el campo server.port para correr un nuevo servicio de accounts en un puerto nuevo. Se utiliza configuración externa, de forma que la configuración está separada del código. Esto nos permite cambiar variables de entorno (como puertos o URLs) sin tener que recompilar 'AccountsWebApplication'.
+En cuanto a la configuración del repositorio, unicamente he modificado el `accounts-service.yml`. Concretamente modifiqué el campo server.port para correr un nuevo servicio de accounts en un puerto nuevo. Se utiliza configuración externa, de forma que la configuración está separada del código. Esto nos permite cambiar variables de entorno (como puertos o URLs) sin tener que recompilar `AccountsWebApplication`.
 
 ---
 
@@ -14,13 +14,13 @@ En cuanto a la configuración del repositorio, unicamente he modificado el 'acco
 
 ![Accounts Registration Log](docs/screenshots/accounts-registration.png)
 
-Al iniciar 'AccountsWebApplication', el cliente de Spring Cloud Eureka inicia un proceso de registro. Envía una solicitud REST al servidor de Eureka (que se ejecuta en el puerto 8761). La entrada de registro 'registration status: 204' indica una respuesta HTTP "Sin contenido" correcta del servidor, lo que confirma que los metadatos del servicio (IP, puerto e ID del servicio) se han aceptado y almacenado en el registro .
+Al iniciar `AccountsWebApplication`, el cliente de Spring Cloud Eureka inicia un proceso de registro. Envía una solicitud REST al servidor de Eureka (que se ejecuta en el puerto 8761). La entrada de registro `registration status: 204` indica una respuesta HTTP "Sin contenido" correcta del servidor, lo que confirma que los metadatos del servicio (IP, puerto e ID del servicio) se han aceptado y almacenado en el registro .
 
 ### Web Service Registration
 
 ![Web Registration Log](docs/screenshots/web-registration.png)
 
-El servicio web también se registra en Eureka al iniciarse. Para descubrir el servicio de cuentas, no utiliza una URL predefinida. En su lugar, utiliza una plantilla RestTemplate anotada con @LoadBalanced. Solicita el nombre lógico 'http://ACCOUNTS-SERVICE', que el cliente de Eureka resuelve a la dirección IP y el puerto disponibles (p. ej., localhost:3333), lo que permite la comunicación dinámica.
+El servicio web también se registra en Eureka al iniciarse. Para descubrir el servicio de cuentas, no utiliza una URL predefinida. En su lugar, utiliza una plantilla RestTemplate anotada con @LoadBalanced. Solicita el nombre lógico `http://ACCOUNTS-SERVICE`, que el cliente de Eureka resuelve a la dirección IP y el puerto disponibles (p. ej., localhost:3333), lo que permite la comunicación dinámica.
 
 ---
 
