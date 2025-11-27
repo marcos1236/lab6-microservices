@@ -4,7 +4,7 @@
 
 **Configuration Repository**: https://github.com/Marcos1236/lab6-microservices.git
 
-En cuanto a la configuración del repositorio, unicamente he modificado el `accounts-service.yml`. Concretamente modifiqué el campo server.port para correr un nuevo servicio de accounts en un puerto nuevo. Se utiliza configuración externa, de forma que la configuración está separada del código. Esto nos permite cambiar variables de entorno (como puertos o URLs) sin tener que recompilar `AccountsWebApplication`.
+En cuanto a la configuración del repositorio, únicamente he modificado el `accounts-service.yml`. Concretamente modifiqué el campo server.port para correr un nuevo servicio de accounts en un puerto nuevo. Se utiliza configuración externa, de forma que la configuración está separada del código. Esto nos permite cambiar variables de entorno (como puertos o URLs) sin tener que recompilar `AccountsWebApplication`.
 
 ---
 
@@ -14,7 +14,7 @@ En cuanto a la configuración del repositorio, unicamente he modificado el `acco
 
 ![Accounts Registration Log](docs/screenshots/accounts-registration.png)
 
-Al iniciar `AccountsWebApplication`, el cliente de Spring Cloud Eureka inicia un proceso de registro. Envía una solicitud REST al servidor de Eureka (que se ejecuta en el puerto 8761). La entrada de registro `registration status: 204` indica una respuesta HTTP "Sin contenido" correcta del servidor, lo que confirma que los metadatos del servicio (IP, puerto e ID del servicio) se han aceptado y almacenado en el registro .
+Al iniciar `AccountsWebApplication`, el cliente de Spring Cloud Eureka inicia un proceso de registro. Envía una solicitud REST al servidor de Eureka (que se ejecuta en el puerto 8761). La entrada de registro `registration status: 204` indica una respuesta HTTP "Sin contenido" correcta del servidor, lo que confirma que los metadatos del servicio (IP, puerto e ID del servicio) se han aceptado y almacenado en el registro.
 
 ### Web Service Registration
 
@@ -30,7 +30,7 @@ El servicio web también se registra en Eureka al iniciarse. Para descubrir el s
 
 El panel confirma el estado actual del ecosistema de microservicios:
 Enumera `ACCOUNTS-SERVICE`, `WEB-SERVICE` y `CONFIGSERVER`.
-Para cada instancia registrada, Eureka muestra el nombre de la aplicación (ID del servicio), las AMI (número de instancias), las zonas de disponibilidad y el estado específico (ACTIVADO), junto con el enlace directo a la instancia (p. ej., `fedora:accounts-service:3333`).
+Para cada instancia registrada, Eureka muestra el nombre de la aplicación (ID del servicio), las AMI (número de instancias), las zonas de disponibilidad y el estado específico (UP), junto con el enlace directo a la instancia (p. ej., `fedora:accounts-service:3333`).
 
 
 ---
@@ -59,7 +59,7 @@ Inmediatamente después de detener el servicio de cuentas en el puerto 3333, las
 ![Instance Removal](docs/screenshots/instance-removal.png)
 
 - Eureka tardó unos segundos en eliminar la instancia porque el `eviction-interval-timer-in-ms` estaba configurado en 1000 ms (1 segundo).
-- Eureka utiliza un mecanismo de `latido`. Los servicios deben enviar un pulso de renovación periódicamente. Al detener el servicio, los latidos pararon. Ya que `enable-self-preservation` está configurado en `false`, Eureka consideró los latidos faltantes como una terminación y expulsó la instancia del registro.
+- Eureka utiliza un mecanismo de latido. Los servicios deben enviar un pulso de renovación periódicamente. Al detener el servicio, los latidos pararon. Ya que `enable-self-preservation` está configurado en `false`, Eureka consideró los latidos faltantes como una terminación y expulsó la instancia del registro.
 
 ---
 
@@ -83,9 +83,9 @@ Gracias a esta práctica he entendido mucho mejor cómo los microservicios permi
 
 ## 8. AI Disclosure
 
-Si, he utilizado Gemini.
+He utilizado Gemini.
 
-El uso principal que le he dado a la herramienta ha sido el de entender como funcioa Eureka. En lo que respecta a la práctica no ha hecho falta utilizarla ya que el guión da instrucciones claras de lo que hay que ejecutar y de que capturas de pantalla debemos mostrar. También se ha utilizado Gemini para repasar errores de otrgorafía del report.
+El uso principal que le he dado a la herramienta ha sido el de entender cómo funciona Eureka. En lo que respecta a la práctica no ha hecho falta utilizarla ya que el guión da instrucciones claras de lo que hay que ejecutar y de que capturas de pantalla debemos mostrar. También se ha utilizado Gemini para repasar errores de ortografía del report.
 
 ---
 
