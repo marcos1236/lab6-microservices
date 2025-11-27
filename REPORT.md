@@ -59,7 +59,7 @@ Inmediatamente después de detener el servicio de cuentas en el puerto 3333, las
 ![Instance Removal](docs/screenshots/instance-removal.png)
 
 - Eureka tardó unos segundos en eliminar la instancia porque el `eviction-interval-timer-in-ms` estaba configurado en 1000 ms (1 segundo).
-- Eureka utiliza un mecanismo de "latido". Los servicios deben enviar un pulso de renovación periódicamente. Al detener el servicio, los latidos cesaron. Dado que `enable-self-preservation` está configurado en `false`, Eureka consideró los latidos faltantes como una terminación y expulsó la instancia del registro.
+- Eureka utiliza un mecanismo de `latido`. Los servicios deben enviar un pulso de renovación periódicamente. Al detener el servicio, los latidos pararon. Ya que `enable-self-preservation` está configurado en `false`, Eureka consideró los latidos faltantes como una terminación y expulsó la instancia del registro.
 
 ---
 
