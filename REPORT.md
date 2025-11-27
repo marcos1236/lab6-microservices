@@ -77,7 +77,7 @@ Inmediatamente después de detener el servicio de cuentas en el puerto 3333, las
 
 ## 7. Conclusions
 
-En este laboratorio, aprendí que la Arquitectura de Microservicios permite desacoplar componentes mediante API REST y configuración centralizada. El descubrimiento de servicios con Eureka es fundamental para entornos dinámicos, ya que elimina la necesidad de direcciones IP predefinidas. Observé de primera mano la resiliencia del sistema: cuando un nodo fallaba, el sistema se autoreparaba enrutando el tráfico a la instancia restante, aunque con un retraso de propagación debido al almacenamiento en caché. Un aspecto clave fue gestionar el orden de inicio específico (Descubrimiento -> Configuración -> Servicios) para garantizar que se cumplieran todas las dependencias.
+Gracias a esta práctica he entendido mucho mejor cómo los microservicios permiten separar la lógica y centralizar la configuración. El descubrimiento de servicios con Eureka es fundamental para entornos dinámicos, ya que elimina la necesidad de direcciones IP predefinidas. Pude comprobar que si un servicio cae, el tráfico se redirige solo a la instancia que queda viva, aunque noté que no es instantáneo por culpa de la caché. También me ha quedado claro que el orden de arranque es crítico: si no inicias Discovery y Config primero, los servicios no pueden registrarse.
 
 ---
 
